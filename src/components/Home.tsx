@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import VocabularyBuilder from './VocabularyBuilder/VocabularyBuilder';
 import NewVocabulary from './VocabularyBuilder/NewVocabulary/NewVocabulary';
 import StickyNote from './GeneralNotes/StickyNote';
 import { Grid } from '@mui/material';
 import { Card } from '@mui/material';
+import { getVocabularyData, postVocabulary } from '../services/AppService';
 
+interface Words {
+  id: number;
+  word: string;
+  meaning: string;
+}
 export const Home = () => {
 
     const DUMMY_WORDS = [
@@ -12,15 +18,29 @@ export const Home = () => {
         { id: 1, word: "travesty", meaning: "a poor, insincere, or insulting imitation of something , caricature, cartoon, farce" }
       ];
 
-    const [words, setWords] = useState(DUMMY_WORDS);
+    const [words, setWords] = useState<Words[]>([]);
 
-    const addHandler = (wordObject:any) => {
+    useEffect(() => {
+      getVocabulary();
+    }, [])
+  
+    const getVocabulary = () => {
+      getVocabularyData().then((response) => {
+        console.log(response);
+        setWords(response.data);
+      });
+    };
+
+    const addHandler = (wordObject: any) => { 
+      postVocabulary(wordObject.word, wordObject.meaning).then((response) => {
         const wordObjectId = {
-            ...wordObject,
-            id: Math.random()
+          ...wordObject,
+          id: response.data.id,
         };
+        console.log(wordObjectId);
         setWords([...words, wordObjectId]);
-    }
+      });
+    };
 
 
     return (

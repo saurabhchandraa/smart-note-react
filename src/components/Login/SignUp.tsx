@@ -12,6 +12,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { register } from '../../services/AuthService';
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props:any) {
   return (
@@ -29,14 +31,24 @@ function Copyright(props:any) {
 const theme = createTheme();
 
 export default function SignUp() {
+
+  let navigate = useNavigate();
   const handleSubmit = (event:any) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    const signUpRequest = {
+      username: data.get('userName'),
+      email: data.get('email'), 
+      firstName:  data.get('firstName'), 
+      lastName: data.get('lastName'), 
+      password: data.get('password')
+    };
+    console.log(signUpRequest);
+    register(signUpRequest).then(
+      ()=> {
+        console.log('User Registered Successfully');
+        return navigate("/login");
+      })
   };
 
   return (
@@ -78,6 +90,16 @@ export default function SignUp() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="userName"
+                  label="Username"
+                  name="userName"
+                  autoComplete="user-name"
                 />
               </Grid>
               <Grid item xs={12}>

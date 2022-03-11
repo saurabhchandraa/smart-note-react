@@ -11,6 +11,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { login } from '../../services/AuthService';
+import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props:any) {
   return (
@@ -27,16 +30,39 @@ function Copyright(props:any) {
 
 const theme = createTheme();
 
-export default function Login() {
+export default function Login(props:any) {
+
+  let navigate = useNavigate();
+  const [message, setMessage] = useState("");
+
   const handleSubmit = (event:any) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
+    const username = data.get('email');
+    const password = data.get('password');
     console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+      email: username,
+      password: password,
     });
-  };
+
+
+    login(username, password).then(
+      () => {
+        console.log('Login Success');
+        return navigate("/");
+      },
+      (error) => {
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+        setMessage(resMessage);
+        alert(resMessage);
+      }
+    );
+  }
 
   return (
     <ThemeProvider theme={theme}>

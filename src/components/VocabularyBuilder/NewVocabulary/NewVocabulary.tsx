@@ -6,13 +6,6 @@ const VocabularyBuilder = (props:any) => {
     const [word, setWord] = useState('');
     const [meaning, setMeaning] = useState('');
     const[baseURL, setBaseURL] = useState('');
-    const [formIsValid, setFormIsValid] = useState(true);
-
-    // useEffect(()=> {
-    //   getMeaningFromWebster(baseURL);
-    //   console.log('Effect');
-    //   console.log(baseURL);
-    // }, [baseURL])
 
     useEffect(() => {
       const delayDebounceFn = setTimeout(() => {
@@ -26,8 +19,6 @@ const VocabularyBuilder = (props:any) => {
     const wordChangeHandler = (event:any) => {
       setWord(event.target.value);
       setBaseURL(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${event.target.value}`);
-      // const baseURL = `https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${event.target.value}`
-      // setTimeout(()=> getMeaningFromWebster(baseURL), 2000)
     }
 
     const getMeaningFromWebster =async (baseURL:string) => {
@@ -59,13 +50,15 @@ const VocabularyBuilder = (props:any) => {
 
     const submitHandler = (event:any) => {
       event.preventDefault();
+      if(word.trim().length === 0 || meaning.trim().length ===0) {
+        return;
+      }
       const wordObject = {
         word: word,
         meaning: meaning
     }
 
     props.onAddWord(wordObject);
-
     console.log(wordObject);
     setWord('');
     setMeaning('');
