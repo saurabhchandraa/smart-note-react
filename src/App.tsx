@@ -1,14 +1,33 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import {Home} from './components/Home'
 import {Layout} from './components/Layout';
 import Login from './components/Login/Login';
 import SignUp from './components/Login/SignUp';
 import {NavigationBar} from './components/NavBar/NavigationBar';
+import AuthContext from './context/auth-context';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn');
+    if (storedUserLoggedInInformation === '1') {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const logoutHandler = () => {
+    localStorage.clear();
+  };
+
   return (
-    <React.Fragment>
+    <AuthContext.Provider
+      value={{
+        isLoggedIn: isLoggedIn,
+        onLogout: logoutHandler
+      }}
+    >
       <NavigationBar/>
       <Layout>
       <Router>
@@ -19,7 +38,7 @@ function App() {
         </Routes>
       </Router>
       </Layout>
-    </React.Fragment>
+      </AuthContext.Provider>
   );
 }
 

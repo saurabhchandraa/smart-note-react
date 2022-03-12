@@ -15,6 +15,8 @@ export const login = (username:any, password:any) => {
     .then((response) => {
       if (response.data.username) {
         localStorage.setItem("userDetails", JSON.stringify(response.data));
+        localStorage.setItem("isLoggedIn", "1");
+        localStorage.setItem("name", response.data.firstName);
         // localStorage.setItem("userId", response.data.id);
         // localStorage.setItem("name", response.data.firstName);
         // localStorage.setItem("jwt", JSON.stringify(response.data.jwtToken));
@@ -24,11 +26,9 @@ export const login = (username:any, password:any) => {
     });
 };
 
-export const logout = () => {
-  localStorage.clear();
-  console.log('User Logged out Successfully');
-};
-
 export const getCurrentUser = () => {
-  return localStorage.getItem("name");
+  const user = localStorage.getItem("userDetails");
+  let userDetails = null;
+  if(user) userDetails = JSON.parse(user);
+  return userDetails;
 };
