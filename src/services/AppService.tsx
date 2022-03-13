@@ -1,7 +1,7 @@
 import axios from "axios";
 import authHeader from "./AuthHeader";
 
-const BASE_URL = "http://localhost:8080/vocabulary/";
+const BASE_URL = "http://localhost:8080/";
 
 interface Words {
   id: number;
@@ -9,11 +9,16 @@ interface Words {
   meaning: string;
 }
 
+interface Notepad {
+  id: number;
+  note: string;
+}
+
 export const postVocabulary = (word: string, meaning: string) => {
-  console.log('Send Post request');
+  console.log("Send Post request");
   console.log(authHeader());
   return axios.post(
-    "http://localhost:8080/vocabulary",
+    BASE_URL + "vocabulary",
     {
       word: word,
       meaning: meaning,
@@ -28,12 +33,45 @@ export const getVocabularyData = () => {
   const user = localStorage.getItem("userDetails");
   let userDetails = null;
   let id = null;
-  if(user) userDetails = JSON.parse(user);
+  if (user) userDetails = JSON.parse(user);
   if (userDetails) {
     id = userDetails.id;
   }
   console.log(`ID FOR GET: ${id}`);
-  return axios.get<Words[]>(`http://localhost:8080/vocabulary/${id}`, {
+  return axios.get<Words[]>(BASE_URL + `vocabulary/${id}`, {
     headers: authHeader(),
   });
+};
+
+export const removeVocabularyData = (id: number) => {
+  return axios.delete(BASE_URL + `vocabulary/${id}`, {
+    headers: authHeader(),
+  });
+};
+
+export const getNotepadData = () => {
+  const user = localStorage.getItem("userDetails");
+  let userDetails = null;
+  let id = null;
+  if (user) userDetails = JSON.parse(user);
+  if (userDetails) {
+    id = userDetails.id;
+  }
+  console.log(`ID FOR GET: ${id}`);
+  return axios.get<Notepad>(BASE_URL + `notepad/${id}`, {
+    headers: authHeader(),
+  });
+};
+
+export const updateNotepadData = (note: string) => {
+  console.log(`Send Update request with data ${note}`);
+  return axios.put(
+    BASE_URL + "notepad",
+    {
+      note: note,
+    },
+    {
+      headers: authHeader(),
+    }
+  );
 };

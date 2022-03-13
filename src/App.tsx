@@ -1,18 +1,19 @@
-import React, {useState, useEffect} from 'react';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import {Home} from './components/Home'
-import {Layout} from './components/Layout';
-import Login from './components/Login/Login';
-import SignUp from './components/Login/SignUp';
-import {NavigationBar} from './components/NavBar/NavigationBar';
-import AuthContext from './context/auth-context';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Home } from "./components/Home";
+import { Layout } from "./components/Layout";
+import Login from "./components/Login/Login";
+import SignUp from "./components/Login/SignUp";
+import { NavigationBar } from "./components/NavBar/NavigationBar";
+import UserProfile from "./components/UserProfile/UserProfile";
+import AuthContext from "./context/auth-context";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn');
-    if (storedUserLoggedInInformation === '1') {
+    const storedUserLoggedInInformation = localStorage.getItem("isLoggedIn");
+    if (storedUserLoggedInInformation === "1") {
       setIsLoggedIn(true);
     }
   }, []);
@@ -25,21 +26,22 @@ function App() {
     <AuthContext.Provider
       value={{
         isLoggedIn: isLoggedIn,
-        onLogout: logoutHandler
+        onLogout: logoutHandler,
       }}
     >
-      <NavigationBar/>
+      <NavigationBar />
       <Layout>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/login" element={<Login></Login>} />
-          <Route path="/signup" element={<SignUp></SignUp>} />
-        </Routes>
-      </Router>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login></Login>} />
+            <Route path="/signup" element={<SignUp></SignUp>} />
+            <Route path="/profile" element={<UserProfile></UserProfile>} />
+          </Routes>
+        </Router>
       </Layout>
-      </AuthContext.Provider>
+    </AuthContext.Provider>
   );
 }
 
-export default App;     
+export default App;

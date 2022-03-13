@@ -3,14 +3,15 @@ import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import AuthContext from "../../context/auth-context";
 import { getCurrentUser } from "../../services/AuthService";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export const NavigationBar = () => {
   const ctx = useContext(AuthContext);
   let user = null;
-  if(ctx.isLoggedIn) {
+  if (ctx.isLoggedIn) {
     user = getCurrentUser();
   }
-  
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container fluid>
@@ -19,19 +20,23 @@ export const NavigationBar = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/">Pricing</Nav.Link>
-          </Nav>
-          {ctx.isLoggedIn ? (
-            <Nav>
+            {ctx.isLoggedIn ? (
               <NavDropdown title={user.firstName}>
-                <NavDropdown.Item href="#action/3.1">{user.email}</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Profile</NavDropdown.Item>
+                <NavDropdown.Item>
+                  {user.email}
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/profile">User Profile</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="/login" onClick={ctx.onLogout}>
                   Logout
                 </NavDropdown.Item>
               </NavDropdown>
+            ) : null}
+          </Nav>
+          {ctx.isLoggedIn ? (
+            <Nav className="me-left">
               <Nav.Link href="/login" onClick={ctx.onLogout}>
+              <LogoutIcon></LogoutIcon>
                 Logout
               </Nav.Link>
             </Nav>
