@@ -4,8 +4,12 @@ import Container from "react-bootstrap/Container";
 import AuthContext from "../../context/auth-context";
 import { getCurrentUser } from "../../services/AuthService";
 import LogoutIcon from '@mui/icons-material/Logout';
+import LoginIcon from '@mui/icons-material/Logout';
+import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 export const NavigationBar = () => {
+  
   const ctx = useContext(AuthContext);
   let user = null;
   if (ctx.isLoggedIn) {
@@ -35,6 +39,7 @@ export const NavigationBar = () => {
           </Nav>
           {ctx.isLoggedIn ? (
             <Nav className="me-left">
+              <Nav.Link href="https://github.com/tesla2101/smart-note-react"><GitHubIcon/></Nav.Link>
               <Nav.Link href="/login" onClick={ctx.onLogout}>
               <LogoutIcon></LogoutIcon>
                 Logout
@@ -42,8 +47,8 @@ export const NavigationBar = () => {
             </Nav>
           ) : (
             <Nav>
-              <Nav.Link href="/login">Login</Nav.Link>
-              <Nav.Link href="/signup">SignUp</Nav.Link>
+              <Nav.Link href="/login"><LoginIcon/>Login</Nav.Link>
+              <Nav.Link href="/signup"><AppRegistrationIcon/>SignUp</Nav.Link>
             </Nav>
           )}
         </Navbar.Collapse>

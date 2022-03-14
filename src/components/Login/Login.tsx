@@ -12,6 +12,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { login } from "../../services/AuthService";
+import AlertDialog from "../UI/AlertDialog";
+import { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 
 function Copyright(props: any) {
@@ -23,8 +25,8 @@ function Copyright(props: any) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="https://mail.google.com/mail/u/0/#inbox?compose=new">
+        saurabhchandraa@gmail.com
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -37,6 +39,7 @@ const theme = createTheme();
 export default function Login(props: any) {
   // let navigate = useNavigate();
 
+  const [error, setError] = useState(false);
   const handleSubmit = (event: any) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -60,13 +63,16 @@ export default function Login(props: any) {
             error.response.data.message) ||
           error.message ||
           error.toString();
-        alert(resMessage);
+          console.log(resMessage);
+          setError(true);       
       }
     );
+    setError(false);
   };
 
   return (
     <ThemeProvider theme={theme}>
+      {error ? (<AlertDialog/>) : null }
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box

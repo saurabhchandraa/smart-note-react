@@ -2,8 +2,6 @@ import { useState, useEffect, useContext } from "react";
 import VocabularyBuilder from "./VocabularyBuilder/VocabularyBuilder";
 import NewVocabulary from "./VocabularyBuilder/NewVocabulary/NewVocabulary";
 import StickyNote from "./Notepad/StickyNote";
-// import { Grid } from "@mui/material";
-// import { Card } from "@mui/material";
 import { getVocabularyData, postVocabulary } from "../services/AppService";
 import AuthContext from "../context/auth-context";
 
@@ -13,6 +11,7 @@ interface Words {
   meaning: string;
 }
 export const Home = () => {
+
   const ctx = useContext(AuthContext);
 
   const DUMMY_WORDS = [
@@ -59,21 +58,6 @@ export const Home = () => {
 
   return (
     <div>
-      {/* <Grid container spacing={2}>
-          <Grid item xs={12} md={6}>
-            <Card>
-              <NewVocabulary onAddWord={addHandler}></NewVocabulary>
-            </Card>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Card>
-              <StickyNote></StickyNote>
-            </Card>
-          </Grid>
-          <Grid item xs={6} md={12}>
-            <VocabularyBuilder wordsList={words}></VocabularyBuilder>
-          </Grid>
-        </Grid> */}
       <NewVocabulary onAddWord={addHandler}></NewVocabulary>
       <VocabularyBuilder
         wordsList={words}

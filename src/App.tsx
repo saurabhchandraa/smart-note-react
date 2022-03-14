@@ -7,6 +7,7 @@ import SignUp from "./components/Login/SignUp";
 import { NavigationBar } from "./components/NavBar/NavigationBar";
 import UserProfile from "./components/UserProfile/UserProfile";
 import AuthContext from "./context/auth-context";
+import StickyFooter from "./components/NavBar/StickyFooter";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -33,7 +34,7 @@ function App() {
       <Layout>
         <Router>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home/>} />
             <Route path="/login" element={<Login></Login>} />
             <Route path="/signup" element={<SignUp></SignUp>} />
             <Route path="/profile" element={<UserProfile></UserProfile>} />
