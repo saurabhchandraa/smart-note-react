@@ -2,6 +2,7 @@ import axios from "axios";
 import authHeader from "./AuthHeader";
 
 const BASE_URL = "http://localhost:8080/";
+// const BASE_URL = "http://smartnotebackend-env-1.eba-5sjyxygk.ap-south-1.elasticbeanstalk.com/";
 
 interface Words {
   id: number;

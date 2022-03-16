@@ -42,7 +42,6 @@ const StickyNote = () => {
       console.log(`Updated Successfully, User ID: ${response.data.id}`);
     });
   };
-  console.log(notes);
   return (
     <div className="text-area">
       {/* <EditText /> */}

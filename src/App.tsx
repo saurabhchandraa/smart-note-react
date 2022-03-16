@@ -7,7 +7,6 @@ import SignUp from "./components/Login/SignUp";
 import { NavigationBar } from "./components/NavBar/NavigationBar";
 import UserProfile from "./components/UserProfile/UserProfile";
 import AuthContext from "./context/auth-context";
-import StickyFooter from "./components/NavBar/StickyFooter";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -32,12 +31,12 @@ function App() {
     >
       <NavigationBar />
       <Layout>
-        <Router>
+        <Router >
           <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/login" element={<Login></Login>} />
-            <Route path="/signup" element={<SignUp></SignUp>} />
-            <Route path="/profile" element={<UserProfile></UserProfile>} />
+            <Route path={process.env.PUBLIC_URL + '/'} element={<Home/>} />
+            <Route path={process.env.PUBLIC_URL + '/login'} element={<Login></Login>} />
+            <Route path={process.env.PUBLIC_URL + '/signup'} element={<SignUp></SignUp>} />
+            <Route path={process.env.PUBLIC_URL + '/user'} element={<UserProfile></UserProfile>} />
           </Routes>
         </Router>
       </Layout>

@@ -5,11 +5,22 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import { useState } from "react";
 
-const AlertDialog = () => {
+const AlertDialog = (props:any) => {
   const [open, setOpen] = useState(true);
+
+  let errorMessage = props.message;
+
+  if(errorMessage === 'Network Error') {
+    errorMessage = 'Oops! Network error occurred while logging in.'
+  }
+
+  if(errorMessage === 'Request failed with status code 401') {
+    errorMessage = 'Please check if your email and password is correct.'
+  }
 
   const handleClose = () => {
     setOpen(false);
+    errorMessage = '';
   };
 
   return (
@@ -22,7 +33,7 @@ const AlertDialog = () => {
       >
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-           Oops! Network error occurred while logging in.
+           {errorMessage}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
