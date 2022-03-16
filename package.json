@@ -1,6 +1,5 @@
 {
   "name": "smart-note-react",
-  "homepage": "http://tesla2101.github.io/smart-note-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -55,7 +54,6 @@
     ]
   },
   "devDependencies": {
-    "@types/react-edit-text": "^4.3.0",
-    "gh-pages": "^3.2.3"
+    "@types/react-edit-text": "^4.3.0"
   }
 }

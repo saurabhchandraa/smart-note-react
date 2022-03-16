@@ -31,12 +31,12 @@ function App() {
     >
       <NavigationBar />
       <Layout>
-        <Router >
+        <Router>
           <Routes>
-            <Route path={process.env.PUBLIC_URL + '/'} element={<Home/>} />
-            <Route path={process.env.PUBLIC_URL + '/login'} element={<Login></Login>} />
-            <Route path={process.env.PUBLIC_URL + '/signup'} element={<SignUp></SignUp>} />
-            <Route path={process.env.PUBLIC_URL + '/user'} element={<UserProfile></UserProfile>} />
+            <Route path="/" element={<Home/>} />
+            <Route path="/login" element={<Login></Login>} />
+            <Route path="/signup" element={<SignUp></SignUp>} />
+            <Route path="/profile" element={<UserProfile></UserProfile>} />
           </Routes>
         </Router>
       </Layout>
