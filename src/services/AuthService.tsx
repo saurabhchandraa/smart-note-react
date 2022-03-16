@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8080/auth/";
+// const BASE_URL = "http://localhost:8080/auth/";
+const BASE_URL = "http://smartnotebackend-env.eba-mnbkuxxi.ap-south-1.elasticbeanstalk.com/auth/";
 
 export const register = (signUpRequest: any) => {
   return axios.post(BASE_URL + "signup", signUpRequest);
