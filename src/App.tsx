@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom"
 import { Home } from "./components/Home";
 import { Layout } from "./components/Layout";
 import Login from "./components/Login/Login";
@@ -31,14 +31,22 @@ function App() {
     >
       <NavigationBar />
       <Layout>
-        <Router>
+      <BrowserRouter>
+      <Switch>
+          <Route exact path={`/`} component={Home} />
+          <Route exact path={`/login`} component={Login} />
+          <Route exact path={`/signup`} component={SignUp} />
+          <Route exact path={`/profile`} component={UserProfile} />
+      </Switch>
+      </BrowserRouter>
+        {/* <Router>
           <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/login" element={<Login></Login>} />
             <Route path="/signup" element={<SignUp></SignUp>} />
             <Route path="/profile" element={<UserProfile></UserProfile>} />
           </Routes>
-        </Router>
+        </Router> */}
       </Layout>
     </AuthContext.Provider>
   );
