@@ -31,7 +31,7 @@ function App() {
     >
       <NavigationBar />
       <Layout>
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router >
           <Routes>
             <Route path={process.env.PUBLIC_URL + '/'} element={<Home/>} />
             <Route path={process.env.PUBLIC_URL + '/login'} element={<Login></Login>} />
