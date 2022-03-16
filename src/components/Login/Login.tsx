@@ -39,7 +39,7 @@ const theme = createTheme();
 export default function Login(props: any) {
   // let navigate = useNavigate();
 
-  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const handleSubmit = (event: any) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -64,15 +64,15 @@ export default function Login(props: any) {
           error.message ||
           error.toString();
           console.log(resMessage);
-          setError(true);       
+          setErrorMessage(resMessage);       
       }
     );
-    setError(false);
+    setErrorMessage('');
   };
 
   return (
     <ThemeProvider theme={theme}>
-      {error ? (<AlertDialog/>) : null }
+      {errorMessage.length >1 ? (<AlertDialog message = {errorMessage}/>) : null }
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -134,7 +134,7 @@ export default function Login(props: any) {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="login" variant="body2">
+                <Link href="signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from "react";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { register } from '../../services/AuthService';
 import { useNavigate } from "react-router-dom";
+import AlertDialog from "../UI/AlertDialog";
 
 function Copyright(props:any) {
   return (
@@ -32,6 +33,8 @@ const theme = createTheme();
 
 export default function SignUp() {
 
+  const [errorMessage, setErrorMessage] = useState('');
+
   let navigate = useNavigate();
   const handleSubmit = (event:any) => {
     event.preventDefault();
@@ -48,11 +51,22 @@ export default function SignUp() {
       ()=> {
         console.log('User Registered Successfully');
         return navigate("/login");
+      }, (error) => {
+        const resMessage =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+        console.log(resMessage);
+        setErrorMessage(resMessage); 
       })
+      setErrorMessage('');
   };
 
   return (
     <ThemeProvider theme={theme}>
+      {errorMessage.length >1 ? (<AlertDialog message = {errorMessage}/>) : null }
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
