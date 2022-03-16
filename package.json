@@ -1,6 +1,6 @@
 {
-  "homepage": "http://tesla2101.github.io/smart-note-react",
   "name": "smart-note-react",
+  "homepage": "http://tesla2101.github.io/smart-note-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

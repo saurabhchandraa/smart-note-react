@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./components/Home";
 import { Layout } from "./components/Layout";
 import Login from "./components/Login/Login";
@@ -31,14 +31,14 @@ function App() {
     >
       <NavigationBar />
       <Layout>
-        <Router>
+        <HashRouter basename="/">
           <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/login" element={<Login></Login>} />
             <Route path="/signup" element={<SignUp></SignUp>} />
             <Route path="/profile" element={<UserProfile></UserProfile>} />
           </Routes>
-        </Router>
+        </HashRouter>
       </Layout>
     </AuthContext.Provider>
   );
