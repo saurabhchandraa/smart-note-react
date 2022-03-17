@@ -33,10 +33,10 @@ function App() {
       <Layout>
       <HashRouter basename='/'>
       <Switch>
-          <Route exact path={`/`} component={Home} />
-          <Route exact path={`/login`} component={Login} />
-          <Route exact path={`/signup`} component={SignUp} />
-          <Route exact path={`/profile`} component={UserProfile} />
+          <Route exact path={'/'} component={Home} />
+          <Route exact path={'/login'} component={Login} />
+          <Route exact path={'/signup'} component={SignUp} />
+          <Route exact path={'/profile'} component={UserProfile} />
       </Switch>
       </HashRouter>
         {/* <Router>
