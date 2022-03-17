@@ -14,7 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { register } from '../../services/AuthService';
 import AlertDialog from "../UI/AlertDialog";
-import {useHistory} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props:any) {
   return (
@@ -33,7 +33,7 @@ const theme = createTheme();
 
 export default function SignUp() {
 
-  let history = useHistory();
+  let navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = (event:any) => {
@@ -50,8 +50,7 @@ export default function SignUp() {
     register(signUpRequest).then(
       ()=> {
         console.log('User Registered Successfully');
-        history.push('/login')
-        // return navigate("/login");
+        return navigate("/login");
       }, (error) => {
         const resMessage =
         (error.response &&
