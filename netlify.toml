@@ -1,8 +1,8 @@
 [[redirects]]
-  from = "/prod/*"
-  to = "https://i4iq9vn4b1.execute-api.ap-south-1.amazonaws.com/prod"
+  from = '/*'
+  to = 'https://i4iq9vn4b1.execute-api.ap-south-1.amazonaws.com/prod'
   status = 200
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = '/*'
+  to = '/index.html'
   status = 200
