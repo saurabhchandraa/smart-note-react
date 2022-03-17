@@ -2,7 +2,7 @@ import axios from "axios";
 import authHeader from "./AuthHeader";
 
 // const BASE_URL = "http://localhost:8080/";
-const BASE_URL = "https://i4iq9vn4b1.execute-api.ap-south-1.amazonaws.com/prod/";
+const BASE_URL = "/";
 
 interface Words {
   id: number;
