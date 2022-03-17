@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom"
+import { HashRouter, Route, Switch } from "react-router-dom"
 import { Home } from "./components/Home";
 import { Layout } from "./components/Layout";
 import Login from "./components/Login/Login";
@@ -31,14 +31,14 @@ function App() {
     >
       <NavigationBar />
       <Layout>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <HashRouter>
       <Switch>
           <Route exact path={`/`} component={Home} />
           <Route exact path={`/login`} component={Login} />
           <Route exact path={`/signup`} component={SignUp} />
           <Route exact path={`/profile`} component={UserProfile} />
       </Switch>
-      </BrowserRouter>
+      </HashRouter>
         {/* <Router>
           <Routes>
             <Route path="/" element={<Home/>} />
