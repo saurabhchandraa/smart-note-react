@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const BASE_URL = "http://localhost:8080/auth/";
-const BASE_URL = "https://i4iq9vn4b1.execute-api.ap-south-1.amazonaws.com/prod/";
+// const BASE_URL = "http://localhost:8080/api/";
+const BASE_URL = "https://evoyqgplf6.execute-api.ap-south-1.amazonaws.com/prod/api/";
 
 export const register = (signUpRequest: any) => {
   return axios.post(BASE_URL + "auth/signup", signUpRequest);

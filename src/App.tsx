@@ -33,10 +33,10 @@ function App() {
       <Layout>
         <Router>
         <Switch>
-         <Route path='/smart-note-react'exact component={Home}/>
-         <Route path='/smart-note-react/login'exact component={Login}/>
-         <Route path='/smart-note-react/signup'exact component={SignUp}/>
-         <Route path='/smart-note-react/profile'exact component={UserProfile}/>
+         <Route path='/'exact component={Home}/>
+         <Route path='/login'exact component={Login}/>
+         <Route path='/signup'exact component={SignUp}/>
+         <Route path='/profile'exact component={UserProfile}/>
        </Switch>
           {/* <Routes>
             <Route path="/smart-note-react" element={<Home/>} />

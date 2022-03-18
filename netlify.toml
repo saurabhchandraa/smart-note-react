@@ -1,0 +1,15 @@
+[[redirects]]
+  from = '/api/*'
+  to = 'https://evoyqgplf6.execute-api.ap-south-1.amazonaws.com/prod/'
+  status = 200
+  force = true
+
+[[redirects]]
+  from = '/*'
+  to = '/index.html'
+  status = 200
+
+[[headers]]
+  for = '/*'
+	  [headers.values]
+	    Access-Control-Allow-Origin = '*'
