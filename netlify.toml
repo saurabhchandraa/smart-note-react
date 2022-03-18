@@ -3,6 +3,7 @@
   to = 'https://i4iq9vn4b1.execute-api.ap-south-1.amazonaws.com/prod'
   status = 200
   force = true
+  headers = {Access-Control-Allow-Origin: "*"}
 
 [[redirects]]
   from = '/*'
