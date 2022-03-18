@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter  as Router, Route, Switch } from "react-router-dom";
 import { Home } from "./components/Home";
 import { Layout } from "./components/Layout";
 import Login from "./components/Login/Login";
@@ -32,12 +32,18 @@ function App() {
       <NavigationBar />
       <Layout>
         <Router>
-          <Routes>
+        <Switch>
+         <Route path='/smart-note-react'exact component={Home}/>
+         <Route path='/smart-note-react/login'exact component={Login}/>
+         <Route path='/smart-note-react/signup'exact component={SignUp}/>
+         <Route path='/smart-note-react/profile'exact component={UserProfile}/>
+       </Switch>
+          {/* <Routes>
             <Route path="/smart-note-react" element={<Home/>} />
             <Route path="/smart-note-react/login" element={<Login></Login>} />
             <Route path="/smart-note-react/signup" element={<SignUp></SignUp>} />
             <Route path="/smart-note-react/profile" element={<UserProfile></UserProfile>} />
-          </Routes>
+          </Routes> */}
         </Router>
       </Layout>
     </AuthContext.Provider>

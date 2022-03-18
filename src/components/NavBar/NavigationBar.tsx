@@ -19,7 +19,7 @@ export const NavigationBar = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container fluid>
-        <Navbar.Brand href="/">SmartNote</Navbar.Brand>
+        <Navbar.Brand href="/smart-note-react">SmartNote</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -29,9 +29,9 @@ export const NavigationBar = () => {
                 <NavDropdown.Item>
                   {user.email}
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/profile">User Profile</NavDropdown.Item>
+                <NavDropdown.Item href="/smart-note-react/profile">User Profile</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="/login" onClick={ctx.onLogout}>
+                <NavDropdown.Item href="/smart-note-react/login" onClick={ctx.onLogout}>
                   Logout
                 </NavDropdown.Item>
               </NavDropdown>
@@ -40,15 +40,15 @@ export const NavigationBar = () => {
           {ctx.isLoggedIn ? (
             <Nav className="me-left">
               <Nav.Link href="https://github.com/tesla2101/smart-note-react"><GitHubIcon/></Nav.Link>
-              <Nav.Link href="/login" onClick={ctx.onLogout}>
+              <Nav.Link href="/smart-note-react/login" onClick={ctx.onLogout}>
               <LogoutIcon></LogoutIcon>
                 Logout
               </Nav.Link>
             </Nav>
           ) : (
             <Nav>
-              <Nav.Link href="/login"><LoginIcon/>Login</Nav.Link>
-              <Nav.Link href="/signup"><AppRegistrationIcon/>SignUp</Nav.Link>
+              <Nav.Link href="/smart-note-react/login"><LoginIcon/>Login</Nav.Link>
+              <Nav.Link href="/smart-note-react/signup"><AppRegistrationIcon/>SignUp</Nav.Link>
             </Nav>
           )}
         </Navbar.Collapse>
