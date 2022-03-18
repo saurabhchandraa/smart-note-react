@@ -52,7 +52,7 @@ export default function Login(props: any) {
     login(username, password).then(
       () => {
         console.log("Login Success");
-        window.location.href = "/";
+        window.location.href = "/smart-note-react";
         // return navigate("/");
       },
       (error) => {

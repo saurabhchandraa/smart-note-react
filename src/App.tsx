@@ -33,10 +33,10 @@ function App() {
       <Layout>
         <Router>
           <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/login" element={<Login></Login>} />
-            <Route path="/signup" element={<SignUp></SignUp>} />
-            <Route path="/profile" element={<UserProfile></UserProfile>} />
+            <Route path="/smart-note-react" element={<Home/>} />
+            <Route path="/smart-note-react/login" element={<Login></Login>} />
+            <Route path="/smart-note-react/signup" element={<SignUp></SignUp>} />
+            <Route path="/smart-note-react/profile" element={<UserProfile></UserProfile>} />
           </Routes>
         </Router>
       </Layout>
