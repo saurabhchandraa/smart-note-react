@@ -4,12 +4,12 @@ import axios from "axios";
 const BASE_URL = "https://i4iq9vn4b1.execute-api.ap-south-1.amazonaws.com/prod/";
 
 export const register = (signUpRequest: any) => {
-  return axios.post(BASE_URL + "signup", signUpRequest);
+  return axios.post(BASE_URL + "auth/signup", signUpRequest);
 };
 
 export const login = (username: any, password: any) => {
   return axios
-    .post(BASE_URL + "api/auth/signin", {
+    .post(BASE_URL + "auth/signin", {
       username,
       password,
     })
