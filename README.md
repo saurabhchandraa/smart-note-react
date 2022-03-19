@@ -3,7 +3,7 @@
 
 
 # SmartNote: A note taking app
-![Home Page](https://raw.githubusercontent.com/tesla2101/assets/main/smart-note2.png)
+![Vocabulary and Notepad](https://raw.githubusercontent.com/tesla2101/assets/main/smart-note3.png)
 
 - Registration and User Login flow with `JWT`.
 - Spring Boot Rest Api Architecture with `Spring Security`.
