@@ -3,6 +3,7 @@
 
 
 # SmartNote: A note taking app
+![Home Page](https://raw.githubusercontent.com/tesla2101/assets/main/smart-note2.png)
 
 - Registration and User Login flow with `JWT`.
 - Spring Boot Rest Api Architecture with `Spring Security`.
@@ -29,26 +30,57 @@ SmartNote is a Note taking app. You can register and login to the app and start 
 ###### Add to Vocabulary and Notepad
 ![Vocabulary and Notepad](https://raw.githubusercontent.com/tesla2101/assets/main/smart-note3.png)
 
-###### Add to Vocabulary and Notepad
-![Vocabulary and Notepad](https://raw.githubusercontent.com/tesla2101/assets/main/smart-note3.png)
+###### Save as PDF
+![Downloded PDF](https://raw.githubusercontent.com/tesla2101/assets/main/smart-note4.png)
+
+
+### Built With
+
+Frameworks/libraries used.
+
+* [React.js](https://reactjs.org/)
+* [Spring Boot](https://spring.io/projects/spring-boot)
+* [MYSQL](https://www.mysql.com/)
+* [Spring Security](https://spring.io/projects/spring-security)
+* [JWT](https://jwt.io/)
+* [TypeScript](https://www.typescriptlang.org/)
+* [React Bootstrap](https://react-bootstrap.github.io/)
+* [Material UI](https://mui.com/)
+* [AWS Elastic Bean Stalk](https://aws.amazon.com/elasticbeanstalk/)
+* [AWS RDS](https://aws.amazon.com/rds/)
+* [AWS API Gateway](https://aws.amazon.com/api-gateway/)
+* [Netlify](https://www.netlify.com/)
 
 
 
-### `npm start`
+<!-- GETTING STARTED -->
+## Getting Started
 
-Runs the app in the development mode.\
+Instructions to run the project locally
+
+### Installation
+
+_Instructions on setting up the code locally._
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/tesla2101/smart-note-react.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Run the app in development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
+   ```sh
+   npm install
+   ```
+4. Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```sh
+   npm run build
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
 
 
