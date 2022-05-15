@@ -5,8 +5,8 @@
 # SmartNote: A note taking app
 ![Vocabulary and Notepad](https://raw.githubusercontent.com/tesla2101/assets/main/smart-note3.png)
 
-- Registration and User Login flow with `JWT`.
-- Spring Boot Rest Api Architecture with `Spring Security`.
+- Registration and User Login flow with `Spring Security` and `JWT`.
+- Rest API with `Spring Boot` and `MYSQL`.
 - Backend JAR deployed on [AWS Elastic Bean Stalk](https://aws.amazon.com/elasticbeanstalk/) using [AWS RDS](https://aws.amazon.com/rds/) for db.connection. 
 - REST Endpoints exposed to [AWS API Gateway](https://aws.amazon.com/api-gateway/) for `ReactJS` Frontend to access.
 - React Frontend Code deployed on [Netlify](https://www.netlify.com/).
